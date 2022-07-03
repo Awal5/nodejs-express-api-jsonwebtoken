@@ -1,7 +1,7 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const router = require('express').Router();
-const { karyawan } = require('../controllers');
+const { handphone } = require('../controllers');
 
 function AuthenticateAccessToken(req, res, next) {
     const authHeader = req.headers['authorization'];
@@ -24,18 +24,18 @@ function AuthenticateAccessToken(req, res, next) {
 }
 
 // GET localhost:8080/karyawan => Ambil data semua karyawan
-router.get('/karyawan', karyawan.getDataKaryawan);
+router.get('/handphone', handphone.getDataHandphone);
 
-// GET localhost:8080/karyawan/2 => Ambil data semua karyawan berdasarkan id = 2
-router.get('/karyawan/:id', karyawan.getDataKaryawanByID);
+// GET localhost:8080/handphone/2 => Ambil data semua handphone berdasarkan id = 2
+router.get('/handphone/:id', handphone.getDataHandphoneByID);
 
-// POST localhost:8080/karyawan/add => Tambah data karyawan ke database
-router.post('/karyawan/add', AuthenticateAccessToken, karyawan.addDataKaryawan);
+// POST localhost:8080/handphone/add => Tambah data handphone ke database
+router.post('/handphone/add', AuthenticateAccessToken, handphone.addDataHandphone);
 
-// POST localhost:8080/karyawan/2 => Edit data karyawan
-router.post('/karyawan/edit', karyawan.editDataKaryawan);
+// POST localhost:8080/handphone/2 => Edit data handphone
+router.post('/handphone/edit', handphone.editDataHandphone);
 
-// POST localhost:8080/karyawan/delete => Delete data karyawan
-router.post('/karyawan/delete/', karyawan.deleteDataKaryawan);
+// POST localhost:8080/handphone/delete => Delete data handphone
+router.post('/handphone/delete/', handphone.deleteDataHandphone);
 
 module.exports = router;

@@ -1,5 +1,5 @@
-const karyawan = require('./controller-karyawan');
+const karyawan = require('./controller-handphone');
 
-module.exports ={
-	karyawan
+module.exports = {
+    handphone
 };
